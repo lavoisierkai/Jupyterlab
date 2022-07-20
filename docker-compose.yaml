@@ -1,0 +1,15 @@
+version: "3"
+services:
+  jupyterlab:
+    image: jupyter/base-notebook:custom-extension
+    build: .
+    restart: unless-stopped
+    ports:
+      - 8888:8888
+    volumes:
+      - data:/home/jovyan/work
+      - settings:/home/jovyan/.jupyter
+
+volumes:
+  data:
+  settings:
